@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Salida
+comment1.params=saldo
+comment1.target=void\ imprimir_Saldo(int)
+comment2.params=parqueaderos
+comment2.target=void\ imprimir_Parqueaderos_Disponibles(int)
+comment3.params=NParque\ Zona
+comment3.target=java.lang.String\ tickete_concatenado(int,\ char)
+numComments=4

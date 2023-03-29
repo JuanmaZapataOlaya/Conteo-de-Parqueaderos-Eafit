@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Proceso
+comment1.params=saldo
+comment1.target=int\ agregar_Saldo(int)
+comment2.params=parqueaderos
+comment2.target=int\ agregar_Parqueaderos(int)
+comment3.params=saldo\ parqueaderos_libres
+comment3.target=java.lang.String\ parquear(int,\ int)
+numComments=4
