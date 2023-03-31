@@ -1,15 +1,8 @@
-
-/**
- * Write a description of class parquea here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 import java.util.Scanner;
-import java.util.Random; //Especificamente estas dos funciones en vez del * para no gastar tantos recursos.
-public class parquea
-{
+import java.util.Random;
 
+public class Main
+{
     public static void main(String[] args){
         
         int saldo = 0;
@@ -24,57 +17,81 @@ public class parquea
         Scanner Placa = new Scanner(System.in);
         String PlacaString = Placa.nextLine();
         char lastPlaca = PlacaString.charAt(5);
-        System.out.println(lastPlaca); //Mantenemos el último dígito con fin de documentar.
+        System.out.println(lastPlaca);
         
-        int nOpcion = 0; //Se usa para definir cuál función se va a ejecutar
+        System.out.println("Ingrese el dia de la semana: ");
+        Scanner SemanaDia = new Scanner(System.in);
+        String Dia = SemanaDia.nextLine();
+        boolean Picoyplaca = false;
         
-        while (nOpcion<3){ //menor a 3 asegura que el programa termine cuando el usuario parqueé
-            System.out.println("Precione: ");
-            System.out.println("1. Para agregar saldo");
-            System.out.println("2. Para Asignar parqueaderos disponibles");
-            System.out.println("3. Para Parquear");
-            System.out.println("4. Para detener la aplicación");
-            
-            
-            
-            Scanner Opcion = new Scanner(System.in);
-            nOpcion = Opcion.nextInt();
-            
-            if (nOpcion == 1){
-                System.out.println("¿ Cuanto saldo desea agregar ?");
-                Scanner saldonuevo = new Scanner(System.in);
-                int saldoint = saldonuevo.nextInt();
-                saldo = saldo+saldoint;
-                System.out.println("Su saldo nuevo es de: "+saldo);
+        String Lunes = "lunes";
+        String Martes = "Martes";
+        String Miercoles = "Miercoles";
+        String Jueves = "Jueves";
+        String Viernes = "Viernes";
+        
+        // Este pico y placa es el de el dia 29 marzo de 2023
+        if(Dia.equalsIgnoreCase(Lunes)){
+            if ((lastPlaca=='6')||(lastPlaca=='9')){
+                Picoyplaca = true;
             }
-            
-            if (nOpcion == 2){
-                System.out.println("¿ Cuantos parqueaderos hay disponibles ?");
-                Scanner parqueo = new Scanner(System.in);
-                int parqueoint = parqueo.nextInt();
-                parqueaderos_libres = parqueaderos_libres+parqueoint;
-                System.out.println("La cantidad de parqueaderos disponibles es: "+parqueaderos_libres);
+        }
+        
+        if(Dia.equalsIgnoreCase(Martes)){
+            if ((lastPlaca=='5')||(lastPlaca=='7')){
+                Picoyplaca = true;
             }
-            if (nOpcion == 3){
-                if ((saldo>=6000)&&(parqueaderos_libres>0)){
-                    saldo = saldo-6000;
-                    parqueaderos_libres = parqueaderos_libres-1;
+        }
+        
+        if(Dia.equalsIgnoreCase(Miercoles)){
+            if ((lastPlaca=='1')||(lastPlaca=='4')){
+                Picoyplaca = true;
+            }
+        }
+        
+        if(Dia.equalsIgnoreCase(Jueves)){
+            if ((lastPlaca=='8')||(lastPlaca=='0')){
+                Picoyplaca = true;
+            }
+        }
+        
+        if(Dia.equalsIgnoreCase(Viernes)){
+            if ((lastPlaca=='3')||(lastPlaca=='2')){
+                Picoyplaca = true;
+            }
+        }
+        
+        int nOpcion = 0;
+        
+        if (Picoyplaca == true){
+            System.out.println("Lo sentimos pero tienes pico y placa, intentelo otro dia");
+        }
+        if (Picoyplaca==false){
+            while (nOpcion<3){
+                System.out.println("Precione: ");
+                System.out.println("1. Para agregar saldo");
+                System.out.println("2. Para Asignar parqueaderos disponibles");
+                System.out.println("3. Para Parquear");
+                System.out.println("4. Para detener la aplicación");
+                
+                
+                
+                Scanner Opcion = new Scanner(System.in);
+                nOpcion = Opcion.nextInt();
+                
+                if (nOpcion == 1){
+                    saldo = Proceso.agregar_Saldo(saldo);
                     
-                    Random rand = new Random();
-                    int Numeroparqueo = rand.nextInt(1000);
-                    int randomNum = rand.nextInt(5);
-                    char randomChar = (char) ('a' + randomNum);
-                    
-                    System.out.println("Su parqueadero es el: "+Numeroparqueo+randomChar);
-                    System.out.println("Su saldo restante es: "+saldo);
-                    
-                }else if (parqueaderos_libres==0){
-                    System.out.println("Lo sentimos, no hay parqueaderos disponibles por el momento");
-                }else{
-                    System.out.println("No tienes saldo suficiente");
+                }
+                
+                if (nOpcion == 2){
+                    parqueaderos_libres = Proceso.agregar_Parqueaderos(parqueaderos_libres);
+                }
+                if (nOpcion == 3){
+                    String Ticket = Proceso.parquear(saldo, parqueaderos_libres);
+                    System.out.println(Ticket);
                 }
             }
         }
     }
 }
-
