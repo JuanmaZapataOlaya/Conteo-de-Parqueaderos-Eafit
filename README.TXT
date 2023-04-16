@@ -1,12 +1,11 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all they need to know. The comments should usually include at least:
-------------------------------------------------------------------------
+PARQUEA EAFIT
+============================================
+Programa para asignar parqueaderos en Eafit
+============================================
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: PARQUEA EAFIT
+PURPOSE OF PROJECT: Asignación eficiente de celdas de parqueo
+VERSION or DATE: Version 3.0
+HOW TO START THIS PROJECT: Ejecutar el Main.java
+AUTHORS: Juan Manuel Zapata Olaya, Carlos David Sanchez Soto, Miguel Ángel Salgar Olarte
+USER INSTRUCTIONS: Cree en tí mismo c:
