@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=Proceso
-comment1.params=saldo
-comment1.target=int\ agregar_Saldo(int)
-comment2.params=parqueaderos
-comment2.target=int\ agregar_Parqueaderos(int)
-comment3.params=saldo\ parqueaderos_libres
-comment3.target=java.lang.String\ parquear(int,\ int)
-numComments=4
+comment1.params=Picoyplaca
+comment1.target=void\ procesoPicoYPlaca(boolean)
+comment2.params=ultimoDigito\ Dia
+comment2.target=boolean\ procesoPlaca(char,\ java.lang.String)
+comment3.params=saldo
+comment3.target=int\ procesoSaldo(int)
+comment4.params=parqueaderos
+comment4.target=int\ procesoCeldas(int)
+comment5.params=saldo\ parqueaderos_libres
+comment5.target=java.lang.String\ procesoParquear(int,\ int)
+numComments=6

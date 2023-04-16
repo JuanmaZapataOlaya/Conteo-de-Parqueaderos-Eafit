@@ -1,6 +1,6 @@
 public class Salida{
     
-    public static void imprimir_Saldo(int saldo){ //Para el proceso de asignar saldo nuevo
+    public static void salidaSaldo(int saldo){
         
         System.out.println("Su nuevo saldo es: "+saldo);
         if (saldo != 0){
@@ -8,11 +8,11 @@ public class Salida{
         }
     }
     
-    public static void imprimir_Parqueaderos_Disponibles(int parqueaderos){
+    public static void salidaCeldas(int parqueaderos){
         System.out.println("El numero de parqueaderos totales en las diferentes zonas de Eafit que se encuentran disponibles son :"+parqueaderos);
     }
     
-    public static String tickete_concatenado(int NParque, char Zona){
+    public static String salidaParqueo(int NParque, char Zona){
         String ProcesamientoTickete = ("Su parqueadero es el: "+NParque+Zona);
         
         
