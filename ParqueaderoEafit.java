@@ -1,9 +1,12 @@
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +20,7 @@ public class ParqueaderoEafit extends JPanel{
     private String placa = null;
     private JTextField textFieldCCTI;
     private JTextField textFieldPlaca;
+    private JCheckBox disabilityCheck;
 
     public ParqueaderoEafit() {
         //construct components
@@ -25,6 +29,8 @@ public class ParqueaderoEafit extends JPanel{
         textFieldPlaca = new JTextField();
         textFieldPlaca.setToolTipText("Ingrese Placa");
         botonTocame = new JButton ("Acceder");
+        disabilityCheck = new JCheckBox ("Discapacitad@");
+        disabilityCheck.setToolTipText ("Si eres una persona de movilidad reducida, marca esto");
         
         botonTocame.addActionListener(new ActionListener() {
             
@@ -61,11 +67,14 @@ public class ParqueaderoEafit extends JPanel{
         add (textFieldCCTI);
         add (textFieldPlaca);
         add (botonTocame);
+        add (disabilityCheck);
+        
 
         //set component bounds (only needed by Absolute Positioning)
         textFieldCCTI.setBounds (300, 105, 100, 25);
         textFieldPlaca.setBounds (300, 140, 100, 25);
-        botonTocame.setBounds (305, 175, 100, 25);
+        botonTocame.setBounds (300, 225, 100, 25);
+        disabilityCheck.setBounds (300, 175, 150, 40);
     }
 
 
