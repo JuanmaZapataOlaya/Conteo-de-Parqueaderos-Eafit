@@ -29,4 +29,16 @@ public class Entrada{
         return (Dia);
     }
     
+    public static boolean discapacitado(){
+        System.out.println("¿Posees una discapacidad? Si/No");
+        Scanner disc = new Scanner(System.in);
+        String discString = disc.nextLine();
+        System.out.println(discString);
+        
+        if(discString.equalsIgnoreCase("si")||discString.equalsIgnoreCase("yes")){
+            return true;
+        }
+        return false;
+    }
+    
 }
