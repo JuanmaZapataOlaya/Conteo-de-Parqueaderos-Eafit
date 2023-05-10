@@ -9,6 +9,8 @@ public class Main
         
         char placa = Entrada.entradaVehiculo();
         
+        boolean discapacidad = Entrada.discapacitado();
+        
         Persistencia.guardarUsuario(usuario,placa);
         
         String dia = Entrada.entradaDia();
