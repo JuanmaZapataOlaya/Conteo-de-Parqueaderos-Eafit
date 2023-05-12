@@ -11,7 +11,7 @@ public class Main
         
         boolean discapacidad = Entrada.discapacitado();
         
-        Persistencia.guardarUsuario(usuario,placa);
+        Persistencia.guardarUsuario(usuario,placa,discapacidad);
         
         String dia = Entrada.entradaDia();
         
@@ -21,4 +21,3 @@ public class Main
 
     }
 }
- 
