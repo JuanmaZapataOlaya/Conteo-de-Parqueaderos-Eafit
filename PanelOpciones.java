@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 public class PanelOpciones extends JPanel{
     
+    
     private JButton botonPerfil;
     private JButton botonParqueadero;
     private JButton botonSaldo;
@@ -20,6 +21,7 @@ public class PanelOpciones extends JPanel{
     private JTextField textFieldDocumento;
     private JLabel labelPlaca;
     private JTextField textFieldPlaca;
+    private JComboBox horaParqueo;
     private JComboBox tipoParqueadero;
     private String documento;
     private String placa;
@@ -35,7 +37,7 @@ public class PanelOpciones extends JPanel{
     public PanelOpciones(String documento, String placa) {
         this.documento = documento;
         this.placa = placa;
-        botonPerfil = new JButton ("Pérfil");
+        botonPerfil = new JButton ("Perfil");
         botonParqueadero = new JButton ("Parqueaderos");
         botonSaldo = new JButton ("Saldo");
         
@@ -81,6 +83,10 @@ public class PanelOpciones extends JPanel{
                     botonAsignarSaldo.setVisible(false);
                     remove(botonAsignarSaldo);
                 }
+                if(horaParqueo != null && horaParqueo.isVisible()){
+                    horaParqueo.setVisible(false);
+                    remove(horaParqueo);
+                }
                 labelDocumento = new JLabel ("C.C. o T.I.");
                 textFieldDocumento = new JTextField (5);
                 textFieldDocumento.setEditable(false);
@@ -109,6 +115,10 @@ public class PanelOpciones extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method 
+                if(horaParqueo != null && horaParqueo.isVisible()){
+                    horaParqueo.setVisible(false);
+                    remove(horaParqueo);
+                }
                 if(textFieldDocumento != null && textFieldDocumento.isVisible()) {
                     labelDocumento.setVisible(false);
                     remove(labelDocumento);
@@ -144,6 +154,7 @@ public class PanelOpciones extends JPanel{
                     remove(botonAsignarSaldo);
                 }
                 
+                
                 Random aleatorio = new Random(System.currentTimeMillis());
                 int intAletorio = aleatorio.nextInt(100);
                 int[] tipos = Celdas.tiposCeldas(intAletorio);
@@ -152,14 +163,68 @@ public class PanelOpciones extends JPanel{
                 System.out.println(opcion+" "+JOptionPane.OK_OPTION);
                 if(opcion == JOptionPane.OK_OPTION) {
                     String[] tipoParqueaderos = {"Carros Normales: "+tipos[0], "Motos: "+tipos[1], "Carros Eléctricos: "+tipos[2]};
+                    String[] horaParqueos = {"6:00am.", "7:00am.", "8:00am.", "9:00am.", "10:00am.", "11:00am.", "12:00 m.", "1:00pm.", "2:00pm.", "3:00pm.", "4:00pm.", "5:00pm.", "6:00pm.", "7:00pm.", "8:00pm.", "9:00pm."};
+                    horaParqueo = new JComboBox (horaParqueos);
                     tipoParqueadero = new JComboBox (tipoParqueaderos);
+                    add (horaParqueo);
                     add (tipoParqueadero);
+                    horaParqueo.setBounds (305, 150, 145, 20);
                     tipoParqueadero.setBounds (305, 120, 145, 20);
                     tipoParqueadero.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             System.out.println("Opcion: "+tipoParqueadero.getSelectedIndex());
                             System.out.println("Valor: "+tipos[tipoParqueadero.getSelectedIndex()]);
+                            
+                            if(horaParqueo.getSelectedIndex() == 0){
+                                Persistencia.guardarHora(horaParqueos[0]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 1){
+                                Persistencia.guardarHora(horaParqueos[1]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 2){
+                                Persistencia.guardarHora(horaParqueos[2]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 3){
+                                Persistencia.guardarHora(horaParqueos[3]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 4){
+                                Persistencia.guardarHora(horaParqueos[4]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 5){
+                                Persistencia.guardarHora(horaParqueos[5]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 6){
+                                Persistencia.guardarHora(horaParqueos[6]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 7){
+                                Persistencia.guardarHora(horaParqueos[7]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 8){
+                                Persistencia.guardarHora(horaParqueos[8]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 9){
+                                Persistencia.guardarHora(horaParqueos[9]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 10){
+                                Persistencia.guardarHora(horaParqueos[10]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 11){
+                                Persistencia.guardarHora(horaParqueos[11]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 12){
+                                Persistencia.guardarHora(horaParqueos[12]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 13){
+                                Persistencia.guardarHora(horaParqueos[13]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 14){
+                                Persistencia.guardarHora(horaParqueos[14]);
+                            }
+                            if(horaParqueo.getSelectedIndex() == 15){
+                                Persistencia.guardarHora(horaParqueos[15]);
+                            }
+                            
                             if(saldo == 0 || saldo < 6000) {
                                 int opcionSaldo = JOptionPane.showConfirmDialog(null, "No tiene suficiente saldo, por favor revise su saldo", null, JOptionPane.OK_OPTION);
                                 if(opcionSaldo == JOptionPane.OK_OPTION) {
@@ -221,7 +286,10 @@ public class PanelOpciones extends JPanel{
             tipoParqueadero.setVisible(false);
             remove(tipoParqueadero);
         }
-        
+        if(horaParqueo != null && horaParqueo.isVisible()){
+                    horaParqueo.setVisible(false);
+                    remove(horaParqueo);
+                }
         labelDocumento = new JLabel ("C.C. o T.I.");
         textFieldDocumento = new JTextField (5);
         textFieldDocumento.setEditable(false);
@@ -280,7 +348,12 @@ public class PanelOpciones extends JPanel{
                                     null,
                                     valoresRecarga,
                                     "2000");
-
+                                    
+                
+                if(horaParqueo != null || horaParqueo.isVisible()){
+                    horaParqueo.setVisible(false);
+                    remove(horaParqueo);
+                }                    
                 if ((s != null) && (s.length() > 0)) {
                     saldo = saldo + Integer.valueOf(s);
                     Persistencia.guardarSaldo(saldo);
@@ -290,6 +363,7 @@ public class PanelOpciones extends JPanel{
                         textFieldDocumento.setVisible(false);
                         remove(textFieldDocumento);
                     }
+
                     if(textFieldPlaca != null && textFieldPlaca.isVisible()) {
                         labelPlaca.setVisible(false);
                         remove(labelPlaca);
