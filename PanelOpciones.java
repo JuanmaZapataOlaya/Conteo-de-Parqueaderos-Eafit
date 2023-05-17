@@ -350,9 +350,7 @@ public class PanelOpciones extends JPanel{
                                     "2000");
                                     
                 
-                if(horaParqueo != null || horaParqueo.isVisible()){
-                    horaParqueo.setVisible(false);
-                    remove(horaParqueo);
+                
                 }                    
                 if ((s != null) && (s.length() > 0)) {
                     saldo = saldo + Integer.valueOf(s);
@@ -398,7 +396,10 @@ public class PanelOpciones extends JPanel{
                     }
                     JOptionPane.showConfirmDialog(null, "El monto de  $"+saldo+" fue recargado exitosamente", "Recarga exitoso", JOptionPane.DEFAULT_OPTION);
                 }
-            }
+                if(horaParqueo != null && horaParqueo.isVisible()){
+                    horaParqueo.setVisible(false);
+                    remove(horaParqueo);
+                }
         });
     }
 
